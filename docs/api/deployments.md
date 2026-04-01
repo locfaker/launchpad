@@ -160,14 +160,14 @@ Fetch recent application logs for a project.
 
 ## Deployment States
 
-| State | Meaning |
-| --- | --- |
-| `PENDING` | Deployment accepted and waiting for worker pickup |
-| `APPLYING` | Helm release is being applied to the cluster |
-| `HEALTH_CHECKING` | Rollout has been applied and health is being observed |
-| `HEALTHY` | Deployment is healthy and serving traffic |
-| `FAILED` | Deployment failed health or rollout checks |
-| `ROLLED_BACK` | Deployment was superseded by a rollback request |
+| State | Meaning | Transitions To |
+| --- | --- | --- |
+| `PENDING` | Deployment accepted and waiting for worker pickup | `APPLYING` or `FAILED` |
+| `APPLYING` | Helm release is being applied to the cluster | `HEALTH_CHECKING` or `FAILED` |
+| `HEALTH_CHECKING` | Rollout has been applied and health is being observed | `HEALTHY` or `FAILED` |
+| `HEALTHY` | Deployment is healthy and serving traffic | `ROLLED_BACK` (if rollback requested) |
+| `FAILED` | Deployment failed health or rollout checks | Terminal state |
+| `ROLLED_BACK` | Deployment was superseded by a rollback request | Terminal state |
 
 ## Deployment Notes
 

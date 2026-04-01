@@ -49,14 +49,17 @@ The control plane owns auth, RBAC, deployment orchestration, rollout reconciliat
 ```text
 launchpad/
   README.md
+  CONTRIBUTING.md
+  SECURITY.md
+  CHANGELOG.md
   docs/
     api/
     architecture/
     operations/
     plans/
     runbooks/
-  infra/
-  services/
+  infra/           # To be implemented
+  services/        # To be implemented
     control-plane/
 ```
 
@@ -64,17 +67,19 @@ launchpad/
 
 The project is designed to run locally with Docker, PostgreSQL, Redis, and a local Kubernetes cluster.
 
+> **Note:** The implementation is currently in progress. The commands below represent the intended workflow once development is complete.
+
 ```bash
 docker compose -f infra/local/docker-compose.yml up -d
 ./mvnw -f services/control-plane/pom.xml test
 ./mvnw -f services/control-plane/pom.xml spring-boot:run -Dspring-boot.run.profiles=local
 ```
 
-Then open:
+Once running, verify the control plane:
 
-- `GET /actuator/health`
-- `GET /api/v1/projects/{projectId}/runtime`
-- `GET /api/v1/projects/{projectId}/logs`
+- `GET http://localhost:8080/actuator/health`
+- `GET http://localhost:8080/api/v1/projects/{projectId}/runtime`
+- `GET http://localhost:8080/api/v1/projects/{projectId}/logs`
 
 ## Documentation
 

@@ -12,7 +12,7 @@ Use this runbook to start Launchpad on a developer machine and validate the core
 - `docker compose`
 - `kubectl`
 - `helm`
-- A local Kubernetes cluster such as `k3d` or `kind`
+- A local Kubernetes cluster: `k3d` (recommended) or `kind`
 
 ## Local Services
 

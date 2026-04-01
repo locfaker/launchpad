@@ -72,13 +72,13 @@ Rollback creates a new deployment that points to the last healthy release. The h
 - Worker retries use bounded backoff and lock expiry.
 - Client-reported state is never treated as authoritative.
 
-## What Recruiters Should Notice
+## Production-Grade Characteristics
 
 This flow demonstrates real production concerns:
 
-- CI-driven release automation
-- idempotent write APIs
-- queueing without over-engineering
-- Kubernetes orchestration
-- rollout reconciliation
-- auditability and rollback
+- CI-driven release automation with immutable image references
+- Idempotent write APIs preventing duplicate deployments
+- Database-backed queueing for operational simplicity
+- Kubernetes orchestration through standardized Helm releases
+- Autonomous rollout reconciliation
+- Complete auditability and safe rollback procedures
