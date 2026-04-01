@@ -24,4 +24,4 @@ If availability or latency drifts outside target:
 
 ## Notes
 
-These targets are intentionally modest. The project is a production-style portfolio system, not a large-scale hosted platform.
+These targets are appropriate for a small-team deployment platform. They balance reliability with operational simplicity. The project demonstrates production-grade practices without requiring enterprise-scale infrastructure.

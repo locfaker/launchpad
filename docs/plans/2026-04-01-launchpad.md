@@ -1,7 +1,5 @@
 # Launchpad Implementation Plan
 
-> **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
-
 **Goal:** Build a portfolio-grade deployment control plane in Spring Boot that can accept CI-driven deployment requests, release containerized applications to Kubernetes through Helm, surface runtime health and logs, and support auditable rollback.
 
 **Architecture:** Implement Launchpad as a modular monolith in a single Spring Boot service named `control-plane`. Persist core state in PostgreSQL, use Redis only for transient concerns, and drive deployments through a database-backed job queue plus Kubernetes and Helm adapters. Keep source builds outside the platform; GitHub Actions will build images and call Launchpad's deployment API.
@@ -15,7 +13,7 @@
 - Repository root will be `launchpad/`.
 - Development happens on Linux or WSL2 with Docker, kubectl, helm, and a local Kubernetes cluster available.
 - The initial release may be API-first; a minimal UI is optional and not on the critical path.
-- `@superpowers:verification-before-completion` should be applied before claiming the implementation is complete.
+- Verification and validation should be performed before claiming the implementation is complete.
 
 ## Target Repository Layout
 

@@ -82,7 +82,15 @@ All resource IDs are UUID strings.
 
 ### Request Correlation
 
-Every response includes a request identifier in the body or response headers so operational logs can be correlated with API calls.
+Every response includes a request identifier in the response body so operational logs can be correlated with API calls.
+
+Example:
+```json
+{
+  "requestId": "5e91c9d3-9b05-4f93-b0f8-6a7b7d9e4c35",
+  ...
+}
+```
 
 ### Timestamps
 
